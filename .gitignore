@@ -2,4 +2,5 @@ internal/server/components/*templ.go
 adamastor
 vendor/
 .direnv/
+.sass-cache
 cert-cache
