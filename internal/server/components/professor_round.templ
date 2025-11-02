@@ -1,0 +1,25 @@
+package components
+
+import (
+	"github.com/jpa-rocha/adamastor/internal/server/utilities"
+	"strconv"
+)
+
+templ ProfessorRound(game utilities.Game) {
+	<div id="game">
+		<p>Score:</p>
+		<p>Won: { strconv.Itoa(game.Win) } - Lost: { strconv.Itoa(game.Loss) }</p>
+		<p>{ strconv.Itoa(game.Round[0]) } { game.Op } { strconv.Itoa(game.Round[1]) }</p>
+		<form id="answer" hx-get="play_round" hx-target="#game" hx-swap="outerHTML">
+			<input name="Answer" type="number" lable="answer" autofocus/>
+			<button type="submit" type="submit">Submit</button>
+			<input name="Op" value={ game.Op } hidden="true"/>
+			<input name="Level" value={ strconv.Itoa(game.Level) } hidden="true"/>
+			<input name="NumRounds" value={ strconv.Itoa(game.NumRounds) } hidden="true"/>
+			<input name="Win" value={ strconv.Itoa(game.Win) } hidden="true"/>
+			<input name="Loss" value={ strconv.Itoa(game.Loss) } hidden="true"/>
+			<input name="Result" value={ strconv.Itoa(game.Result) } hidden="true"/>
+			<input name="Answer" value={ strconv.Itoa(game.Answer) } hidden="true"/>
+		</form>
+	</div>
+}

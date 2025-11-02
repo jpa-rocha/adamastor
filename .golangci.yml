@@ -1,0 +1,26 @@
+version: 2
+linters:
+  enable-all: true
+  disable:
+    - contextcheck
+    - depguard
+    - exhaustruct
+    - godox
+    - gomoddirectives
+    - ireturn
+    - paralleltest
+    - protogetter
+    - tparallel
+    - varnamelen
+linters-settings:
+  dupl:
+    threshold: 200
+run:
+  build-tags:
+    - integration
+  timeout: 10m
+issues:
+  exclude-files:
+    - .+\.(twirp|pb).go
+output:
+  sort-results: true
