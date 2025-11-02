@@ -1,4 +1,4 @@
-module github.com/jpa-rocha/github.com/jpa-rocha/adamastor
+module github.com/jpa-rocha/adamastor
 
 go 1.24.9
 

@@ -2,7 +2,6 @@
 {
   tidy = pkgs.writeShellScriptBin "run-tidy" ''
     set -euo pipefail
-    export GOPRIVATE=git.wobcom.de
     ${go}/bin/go mod tidy
     ${go}/bin/go mod vendor
   '';
@@ -15,6 +14,12 @@
   lint = pkgs.writeShellScriptBin "run-lint" ''
     set -euo pipefail
     ${pkgs.nix}/bin/nix flake check
+  '';
+
+  generate = pkgs.writeShellScriptBin "gen-templates" ''
+    set -euo pipefail
+    ${pkgs.templ}/bin/templ generate --path ./internal/server/components/
+    cp ./internal/server/components/*.go ./internal/server/templates/
   '';
 
 }

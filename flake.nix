@@ -39,6 +39,7 @@
           scripts.lint
           scripts.test
           scripts.tidy
+          scripts.generate
           go
           sass
           templ
