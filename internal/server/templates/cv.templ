@@ -1,0 +1,24 @@
+package templates
+
+import (
+	"fmt"
+	"github.com/jpa-rocha/adamastor/internal/server/components"
+	"github.com/jpa-rocha/adamastor/internal/server/utilities"
+)
+
+var exp = utilities.HandleCVArticles()
+var pro = utilities.SplitExp(exp, "Professional")
+var edu = utilities.SplitExp(exp, "Education")
+var final = append(pro, edu...)
+
+templ CV() {
+	<main>
+		for i, position := range final {
+			if i > 0 {
+				@components.ArticleCV(fmt.Sprint(i), "inactive", position.Institution, position)
+			} else {
+				@components.ArticleCV(fmt.Sprint(i), "active", position.Institution, position)
+			}
+		}
+	</main>
+}

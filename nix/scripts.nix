@@ -19,7 +19,7 @@
   generate = pkgs.writeShellScriptBin "gen-templates" ''
     set -euo pipefail
     ${pkgs.templ}/bin/templ generate --path ./internal/server/components/
-    cp ./internal/server/components/*.go ./internal/server/templates/
+    ${pkgs.templ}/bin/templ generate --path ./internal/server/templates/
   '';
 
 }

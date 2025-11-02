@@ -1,0 +1,18 @@
+package templates
+
+import (
+	"github.com/jpa-rocha/adamastor/internal/server/components"
+	"github.com/jpa-rocha/adamastor/internal/server/utilities"
+)
+
+var currDescription = utilities.SingleMarkdownToComponent("assets/static/content/description/curriculum.md")
+var aboutDescription = utilities.SingleMarkdownToComponent("assets/static/content/description/about.md")
+var projectsDescription = utilities.SingleMarkdownToComponent("assets/static/content/description/projects.md")
+
+templ Index() {
+	<main>
+		@components.ArticleIndex("0", "active", "CURRICULUM", "curriculum", currDescription)
+		@components.ArticleIndex("1", "inactive", "PROJECTS", "projects", projectsDescription)
+		@components.ArticleIndex("2", "inactive", "ABOUT", "about", aboutDescription)
+	</main>
+}
