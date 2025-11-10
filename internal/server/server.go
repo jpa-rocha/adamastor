@@ -32,8 +32,8 @@ const (
 	LogError
 )
 
-func NewServer(certManager autocert.Manager) *Server {
-	logger := log.New(os.Stderr, "github.com/jpa-rocha/adamastor: ", int(LogInfo))
+func NewServer(certManager *autocert.Manager) *Server {
+	logger := log.New(os.Stderr, "adamastor: ", int(LogInfo))
 
 	config := &http.Server{
 		Addr:         port,
